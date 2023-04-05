@@ -13,9 +13,9 @@ jobs:
     strategy:
       matrix:
         arch: [x64]
-        root: [Magisk Delta (HuskyDG), none]
+        root: [delta, none]
         gapps: [MindTheGapps, none]
-        release: [Insider Fast]
+        release: [WIF]
         compress-format: [zip]
 
     steps:
