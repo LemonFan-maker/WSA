@@ -13,8 +13,8 @@ jobs:
     strategy:
       matrix:
         arch: [x64]
-        root: [magisk, none]
-        gapps: [none, none]
+        root: [magisk]
+        gapps: [none]
         release: [WIF]
         compress-format: [zip]
 
