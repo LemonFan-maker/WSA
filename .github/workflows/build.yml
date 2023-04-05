@@ -13,8 +13,8 @@ jobs:
     strategy:
       matrix:
         arch: [x64]
-        root: [delta, none]
-        gapps: [MindTheGapps, none]
+        root: [magisk, none]
+        gapps: [none, none]
         release: [WIF]
         compress-format: [zip]
 
@@ -32,7 +32,7 @@ jobs:
 
       - name: Build WSA GAPPS ${{ matrix.root }} ${{ matrix.arch }}
         id: wsa
-        run: ./scripts/build.sh --arch ${{ matrix.arch }} --release-type ${{ matrix.release }} --magisk-ver stable --gapps-brand ${{ matrix.gapps }} --root-sol ${{ matrix.root }} --remove-amazon --compress-format ${{ matrix.compress-format }}
+        run: ./scripts/build.sh --arch ${{ matrix.arch }} --release-type ${{ matrix.release }} --magisk-ver delta --gapps-brand ${{ matrix.gapps }} --root-sol ${{ matrix.root }} --remove-amazon --compress-format ${{ matrix.compress-format }}
 
       - name: Prepare release tag
         id: date
