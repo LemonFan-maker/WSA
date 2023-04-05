@@ -1,5 +1,6 @@
 name: Auto Build
-on: [workflow_call]
+on:
+  workflow_dispatch:
 
 concurrency: 
   group: ${{ github.head_ref || github.ref }}
@@ -11,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [x64, arm64]
-        root: [magisk, none]
+        arch: [x64]
+        root: [Magisk Delta (HuskyDG), none]
         gapps: [MindTheGapps, none]
-        release: [retail]
-        compress-format: [7z]
+        release: [Insider Fast]
+        compress-format: [zip]
 
     steps:
       - name: Checkout
