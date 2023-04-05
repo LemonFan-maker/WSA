@@ -104,12 +104,8 @@ jobs:
         run: |
           cd ./output/
           sha256sum '${{ steps.wsa.outputs.artifact }}${{ inputs.compression }}' >> sha256-checksum.txt
-          
-      - name: Update build to release
-        uses: softprops/action-gh-release@v0.1.15
+      - name: Upload Artifact 🤌
+        uses: actions/upload-artifact@v3
         with:
-          files: ./output
-          fail_on_unmatched_files: true
-          append_body: true
-          tag_name: ${{ steps.wsa.outputs.artifact }}
-          body: ${{ steps.wsa.outputs.artifact }}
+          name: ${{ steps.wsa.outputs.artifact }}
+          path: ./output
